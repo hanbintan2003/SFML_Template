@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -dynamiclib -Wl,-headerpad_max_install_names -current_version 1.10.0 -o ../../../lib/libgmockd.1.10.0.dylib -install_name /Users/ice/Projects/MacOS_SFML_Template/build/lib/libgmockd.1.10.0.dylib "CMakeFiles/gmock.dir/src/gmock-all.cc.o"  ../../../lib/libgtestd.1.10.0.dylib 
