@@ -1,0 +1,2 @@
+E:\jetbrain\apps\CLion\ch-0\223.8617.54\bin\mingw\bin\ar.exe qc ..\..\..\lib\libgmock_maind.a CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj
+E:\jetbrain\apps\CLion\ch-0\223.8617.54\bin\mingw\bin\ranlib.exe ..\..\..\lib\libgmock_maind.a
