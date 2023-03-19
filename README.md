@@ -16,7 +16,7 @@ link goes here
 
 ## Design
 change the repo name:
-Can be found in https://github.com/Serenity0204/CPP_TEMPLATE/blob/master/design.txt
+Can be found in [https://github.com/Serenity0204/CPP_TEMPLATE/blob/master/design.txt](https://github.com/hanbintan2003/SFML_Template/blob/main/design.txt)
 
 
 ## Features
