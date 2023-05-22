@@ -1,8 +1,7 @@
 #include "engine.h"
 
 // Engine main
-Engine::Engine()
-{
+Engine::Engine(){
     //                                                  Change the name of the project here
     this->_window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT),
                          "Project Name");
@@ -116,9 +115,4 @@ void Engine::_update_buttons_event(sf::Event& event)
         cout << "TEST" << endl;
         return;
     }
-}
-
-void Engine::_update_input_box_event()
-{
-    cout << "Input box event triggered" << endl;
 }

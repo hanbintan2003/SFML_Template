@@ -48,7 +48,7 @@ void Config::_set_texture()
 {
     // set texture example
      auto t1 = std::make_shared<sf::Texture>();
-    t1->loadFromFile("../assets/cat1.png");
+    t1->loadFromFile("../assets/error.png");
     this->_texture_map.insert({"0",t1});
 
 }

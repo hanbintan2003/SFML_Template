@@ -5,9 +5,10 @@
 #include "../input_box/input_box.h"
 #include "../button/buttons.h"
 #include "../header/header.h"
+
+
 using namespace std;
-class Engine
-{
+class Engine{
 private:
     // sfml private members here
     sf::RenderWindow _window;
@@ -23,7 +24,9 @@ private:
     void _init();
     // update
     void _update_buttons_event(sf::Event& event);
-    void _update_input_box_event();
+    void _update_input_box_event(){
+        cout << "Input box event triggered" << endl;
+    }
 
 public:
     // constructors and destructors

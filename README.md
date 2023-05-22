@@ -7,11 +7,13 @@ Project Description goes here
 
 
 ## Demo
-use this to generate image link: https://postimages.org/
 * Demo 1
-link goes here
-* Tie
-link goes here
+<br>
+<img src="assets/home.png"/>
+
+* Demo 2
+  <br>
+  <img src="assets/home2.png"/>
 
 
 ## Design
