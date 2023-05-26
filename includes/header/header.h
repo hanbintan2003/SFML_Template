@@ -4,8 +4,7 @@
 using namespace std;
 
 
-class Header
-{
+class Header{
 private:
     sf::RectangleShape _header;
     sf::Text _text;

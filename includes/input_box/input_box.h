@@ -38,6 +38,7 @@ public:
 
     void update_input_box(sf::RenderWindow &window, sf::Event& event);
 private:
+
     sf::Text textbox;
     string text;
     int init_text_len;
