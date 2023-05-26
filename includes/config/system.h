@@ -3,16 +3,13 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
-enum FONTS
-{
+enum FONTS{
     // ADD MORE FONTS HERE
     ARIAL = 0,
-
 };
 
 // Action code for buttons go here
-enum ACTION_CODE
-{
+enum ACTION_CODE{
     INVALID = -1,
     // add more action code for button here
     TEST = 0,
