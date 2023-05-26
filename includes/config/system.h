@@ -22,7 +22,6 @@ const int WINDOW_HEIGHT = 650;
 const int WINDOW_WIDTH = 1200;
 const int INPUT_BOX_FONT_SIZE = 24;
 const int HEADER_FONT_SIZE = 35;
-const int CHAR_LIMIT = 5;
 
 // system variable config
 // ADD SYSTEM  VARIABLE HERE

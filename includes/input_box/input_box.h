@@ -4,6 +4,7 @@
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <utility>
 // Define keys:
 
 #define DELETE_KEY 8
@@ -13,12 +14,11 @@ using namespace std;
 
 class InputBox {
 public:
-    InputBox(){}
-    InputBox(int font_size,sf::Vector2f box_size, sf::Vector2f position ,
+    InputBox()= default;
+
+    InputBox(int font_size, sf::Vector2f box_size, sf::Vector2f position,
              sf::Color text_color, sf::Color box_color, bool sel, string text_str=""){
         isSelected = false;
-        hasLimit = false;
-        limit = 0;
         rect.setSize(box_size);
         rect.setFillColor(box_color);
         rect.setPosition(position);
@@ -27,8 +27,9 @@ public:
         textbox.setPosition(position);
         isSelected = sel;
 
-        text = text_str;
+        text = std::move(text_str);
         init_text_len = text.length();
+
         // Check if the textbox is selected upon creation and display it accordingly:
         if(isSelected)
             textbox.setString(text + "|");
@@ -45,15 +46,6 @@ public:
         textbox.setPosition(point);
     }
 
-    // Set char limits:
-    void setLimit(bool ToF){
-        hasLimit = ToF;
-    }
-
-    void setLimit(bool ToF, int lim){
-        hasLimit = ToF;
-        limit = lim - 1;
-    }
 
     // Change selected state:
     void setSelected(bool sel){
@@ -80,32 +72,15 @@ public:
         window.draw(rect);
         window.draw(textbox);
     }
+
     // Function for event loop:
     void typedOn(sf::Event &input){
         if (isSelected) {
             int charTyped = input.text.unicode;
-
             // Only allow normal inputs:
-            if (charTyped < 128) {
-                if (hasLimit) {
-                    // If there's a limit, don't go over it:
-                    if (text.length() <= limit) {
-                        inputLogic(charTyped);
-                    }
-                        // But allow for char deletions:
-                    else if (text.length() > limit && charTyped == DELETE_KEY) {
-                        deleteLastChar();
-                    }
-
-                }
-                    // If no limit exists, just run the function:
-                else {
-                    inputLogic(charTyped);
-                }
-            }
+            if (charTyped < 128) inputLogic(charTyped);
         }
     }
-    void set_text(const string& str){ this->text += str;}
 
     void update_input_box(sf::RenderWindow &window, sf::Event& event){
         sf::Vector2i mouseCoords({ sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y });
@@ -124,8 +99,7 @@ public:
         bool clicked = event.type == sf::Event::MouseButtonPressed;
         if (mouseX < boxXPosWidth && mouseX > boxPosX && mouseY < boxYPosHeight && mouseY > boxPosY) {
 
-            if(clicked)
-            {
+            if(clicked){
                 this->setSelected(true);
                 this->textbox.setString(this->getText() + "|");
                 return;
@@ -137,10 +111,8 @@ public:
 private:
     sf::Text textbox;
     string text;
-    int init_text_len;
-    bool isSelected;
-    bool hasLimit;
-    int limit;
+    int init_text_len{};
+    bool isSelected{};
     sf::RectangleShape rect;
 
     // Delete the last character of the text:

@@ -2,7 +2,7 @@
 
 // Engine main
 Engine::Engine(){
-    //                                                  Change the name of the project here
+    //Change the name of the project here
     this->_window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT),
                          "Project Name");
     this->_window.setKeyRepeatEnabled(true);
@@ -14,30 +14,25 @@ Engine::Engine(){
 Engine::~Engine(){}
 
 // taking input
-void Engine::input()
-{
-    sf::Event event;
-    while (this->_window.pollEvent(event))
-    {
+void Engine::input(){
+    sf::Event event{};
+    while (this->_window.pollEvent(event)){
         // calling update event helper functions
         this->_update_buttons_event(event);
 
         // User quit
-        if(event.type == sf::Event::Closed)
-        {
+        if(event.type == sf::Event::Closed){
             cout << "User Quit" << endl;
             this->_window.close();
             break;
         }
         // User input text
-        if(event.type == sf::Event::TextEntered)
-        {
+        if(event.type == sf::Event::TextEntered){
             this->_input_box.typedOn(event);
             break;
         }
         // User press up and already entered bet
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
             this->_update_input_box_event();
             break;
         }
@@ -46,8 +41,7 @@ void Engine::input()
 }
 
 // main draw method, update screen
-void Engine::display()
-{
+void Engine::display(){
     // ADD MORE THINGS TO DRAW
     // display the input box for user to enter bet
     this->_input_box.drawTo(this->_window);
@@ -59,17 +53,14 @@ void Engine::display()
 
 
 // run method for game
-void Engine::run()
-{
+void Engine::run(){
     // set the position and font before running
     sf::Font arial = config.get_font(ARIAL);
     this->_input_box.setFont(arial);
-    this->_input_box.setLimit(true, CHAR_LIMIT);
     this->_header.setFont(arial);
 
     // main loop
-    while (this->_window.isOpen())
-    {
+    while (this->_window.isOpen()){
         // taking input
         this->input();
         // clear the screen
@@ -84,8 +75,7 @@ void Engine::run()
 // *****************************************************************************************************************
 
 // *****************************************************************************************************************
-void Engine::_init()
-{
+void Engine::_init(){
 
     this->_buttons = Buttons();
     this->_header = Header("TEST HEADER", HEADER_SIZE,
